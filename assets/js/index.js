@@ -99,13 +99,23 @@ function setOffSet(){
 
     //去掉 之前的 active
     let li = doms.ul.querySelector('.active');
+    let loop = doms.ul.querySelector('.loopScale')
     if(li){
         li.classList.remove('active');
+    }
+    if(loop){
+        if(!li.innerText.includes("Wake up!")){
+            loop.classList.remove('loopScale');
+        }
+        console.log(loop.innerText.includes("Wake up!"));
     }
 
     li = doms.ul.children[index];
     if(li){
         li.classList.add('active');
+        if(li.innerText.includes('Wake up!')){
+            li.classList.add('active','loopScale');
+        }
     }
     console.log(offset);
 };
